@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="load.js"></script> 
     <style>
       body {color: red;}
 
@@ -15,8 +16,7 @@ li {
 }
 li a {color:white;} /* style links inside menu <li> */
 
-</style>
-
+    </style>
     <!--
          To loadi content into the index we will use JqueryL:  $(div#content').load(content.html');
          It will load the content from content.html onto the div#content element
@@ -25,53 +25,14 @@ li a {color:white;} /* style links inside menu <li> */
 
 	 content.html will be our updatable book content
 
-
-          A menu like the one bellow is build with generate_toc function:
+         A menu like the one bellow is build with generate_toc function:
 
     <ul>
     <li><a href="#inhoud">INHOUD</a></li>
     <li><a href="#hoe-ontstaan-ideeën">Hoe ontstaan ideeën?</a></li>
     <ul>
     
---> 
-    
-    <script>
-
-function generate_toc(headings){
-    var menu = '' //an empty menu to start
-    headings.each( function(h){ //for each heading
-	var el_id = $(this).attr('id'); //get its id
-	var el_text = $(this).text(); //get its text
-	var menu_item = '<li><a href="#' + el_id + '">' + el_text + '</a></li>' //build a <li> with <a> pointing to each <h1> in text 
-	menu = menu + menu_item;
-    })
-	menu = '<ul>'+menu+'</ul>'; //wrap all <li>s inside <ul> </ul>
-    return menu
-	}
-
-
-
-$(document).ready(
-    function(){
-	$('div#content').load('content.html',
-			      {}, //data
-			      function(){ //this function will be called when content has loaded
-				  // here you can write JS/jQuery code that affects the loaded content
-				  
-				  $('h1').css('color','#000');
-
-				  // Creating menu
-				  var all_h1 = $('div#content').find('h1'); //find all h1 inside div#content
-				  var menu = generate_toc(all_h1); //create menu by running generate_toc(all_h1s) 
-				  $('div#content').before(menu); //insert menu before div#content
-			      }
-			     ); // load the content from content.html to div#content
-
-    }
-)
-      
-    </script>
-
+-->   
   </head>
   <body>
 
