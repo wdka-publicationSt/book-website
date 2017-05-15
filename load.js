@@ -27,7 +27,7 @@ function generate_toc(headings){
 	menu = menu + menu_item;
     });	
     menu = '<ul>'+menu+'</ul>'; //wrap all <li>s inside <ul> </ul>
-    $('div#content').html(menu); //insert menu before div#content
+    $('div#toc').html(menu); //insert menu before div#content
     return menu
 }
 
