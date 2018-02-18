@@ -1,3 +1,23 @@
+function readTextFile(file)
+{
+    var allText;
+    var rawFile = new XMLHttpRequest();
+    rawFile.open("GET", file, false);
+    rawFile.onreadystatechange = function ()
+    {
+	//console.log(rawFile.readyState);
+	if(rawFile.readyState === 4)
+	{
+	    if(rawFile.status === 200 || rawFile.status == 0)
+	    {
+		allText = rawFile.responseText;
+	    }
+	}
+    }
+    rawFile.send(null);
+    return allText;
+}
+
 
 function create_sections(content){
     // wraps <h1> & elments that follow, until next <h1>, within a <div class="section" id="section_N'>...  
@@ -34,17 +54,15 @@ function generate_toc(headings){
 
 $(document).ready(
     function(){
-	// can content not be loaded into the DOM
-	// but to a variable that can be parsed?
-	$.get('./content.html', function(content){
-	    html = $.parseHTML( content );
-	    $('div#content').append( content );
-	    var sections_h1s= create_sections( $('div#content') );
-	    var sections = sections_h1s[0];
-	    var h1s = sections_h1s[1];
-	    console.log( sections, h1s  );
-	    var menu = generate_toc(h1s); //create menu by running generate_toc(all_h1s) 
-	} , 'html' )
+	var content = readTextFile('content.html');
+	content_el = $('div#content').append( content );
 	
+	var sections= create_sections(content_el);	
+	var h1s = sections[1];
+	var menu = generate_toc(h1s);
+
+	//ADD MORE JS HERE:
+	//console.log($('p')[0].innerText);
+	//$('p').css('width', '50%', '!important')
     }
 )

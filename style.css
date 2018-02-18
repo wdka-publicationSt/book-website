@@ -1,0 +1,10 @@
+body {color: #21daff;}
+
+li {
+    display: inline-block;/* menu item as horizontal list;  display:block;  creates vertical lists */
+    background: black;
+    color: white;
+    font-weight: bold;
+    margin: 10px;
+}
+li a {color:white;} /* style links inside menu <li> */

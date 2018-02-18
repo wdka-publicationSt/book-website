@@ -3,35 +3,22 @@
   <head>
     <meta charset="utf-8" />
     <script type="text/javascript" src="jquery-3.1.1.min.js"></script>
-    <script type="text/javascript" src="load.js"></script> 
-    <style>
-      body {color: red;}
-
-li {
-    display: inline-block;/* menu item as horizontal list;  display:block;  creates vertical lists */
-    background: black;
-    color: white;
-    font-weight: bold;
-    margin: 10px;
-}
-li a {color:white;} /* style links inside menu <li> */
-
-    </style>
+    <script type="text/javascript" src="load.js"></script>
+    <link rel="stylesheet" href="style.css" type="text/css" media="screen" />
     <!--
-         To loadi content into the index we will use JqueryL:  $(div#content').load(content.html');
-         It will load the content from content.html onto the div#content element
 
-	 Making changes to CSS, adding HTML (such as menus) can be done in this page: index.html
+	To load content into the index we will use the load.js with function: readTextFile
+	It will load the content from content.html onto the div#content element
 
-	 content.html will be our updatable book content
+	Making changes to CSS, adding HTML (such as menus) can be done in this page: index.html
 
-         A menu like the one bellow is build with generate_toc function:
+	content.html will be our updatable book content
 
-    <ul>
-    <li><a href="#inhoud">INHOUD</a></li>
-    <li><a href="#hoe-ontstaan-ideeën">Hoe ontstaan ideeën?</a></li>
-    <ul>
-    
+	A menu strcture,  like the one bellow is build with generate_toc function, using the h1 elements to create entries:
+	<ul>
+	  <li><a href="#id_of_firsth1">First h1</a></li>
+	  <li><a href="#id_ofsecond_h1">Second h2</a></li>
+	<ul>
 -->   
   </head>
   <body>
